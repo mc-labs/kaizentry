@@ -5,5 +5,10 @@ class CreateTags < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    create_table :kaizens_tags, id: false do |t|
+      t.belongs_to :kaizen, index: true
+      t.belongs_to :tag, index: true
+    end
   end
 end
