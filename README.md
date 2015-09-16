@@ -1,0 +1,2 @@
+# kaizentry
+Kaizen colleciton system
