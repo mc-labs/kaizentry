@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Kaizens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kaizens.each do |kaizen| %>
+      <tr>
+        <td><%= link_to 'Show', kaizen %></td>
+        <td><%= link_to 'Edit', edit_kaizen_path(kaizen) %></td>
+        <td><%= link_to 'Destroy', kaizen, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Kaizen', new_kaizen_path %>
