@@ -10,15 +10,19 @@
       </ul>
     </div>
   <% end %>
-  <div class="row">
-    <%= f.text_area :text %>
-    <%= f.fields_for :user do |users_form| %>
-      <%= users_form.text_field :email %>
-    <% end %>
+  <div class="container-fluid">
+    <div class="row">
+      <%= f.text_area :text, class: "form-control", rows: 5 %>
+    </div>
+    <div class="row">
+      <%= f.fields_for :user do |users_form| %>
+        <%= users_form.text_field :email %>
+      <% end %>
 
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn" %>
   </div>
 <% end %>
