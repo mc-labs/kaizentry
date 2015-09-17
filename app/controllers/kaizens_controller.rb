@@ -20,8 +20,11 @@ class KaizensController < ApplicationController
     else
       @kaizen.user = user
     end
-    @kaizen.save
-    redirect_to @kaizen
+    if @kaizen.save
+      redirect_to @kaizen
+    else
+      render :edit
+    end
   end
 
   def edit
