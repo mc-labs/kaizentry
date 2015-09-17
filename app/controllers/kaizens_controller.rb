@@ -14,7 +14,9 @@ class KaizensController < ApplicationController
   def create
     @kaizen = Kaizen.new kaizen_params
     user = User.find_by email: kaizen_user_params[:user][:email]
-    if user.nil?
+    if kaizen_user_params[:user][:email].empty?
+      @kaizen.user = User.find_by email: "anonymous"
+    elsif user.nil?
       @kaizen.user = User.new kaizen_user_params[:user]
       @kaizen.user.save
     else
