@@ -11,8 +11,9 @@
       <div class="navbar-inner">
         <div class="container">
             <ul class="nav nav-pills">
-              <li><%= link_to "New Kaizen", new_kaizen_path, class:"btn navbar-btn" %></li>
-              <li><%= link_to "Show Kaizens", kaizens_path, class:"btn navbar-btn" %></li>
+              <li><%= link_to "New Kaizen", new_kaizen_path, class:"btn navbar-btn", id:"new_kaizen" %></li>
+              <li><%= link_to "Show Kaizens", kaizens_path, class:"btn navbar-btn", id:"show_kaizen" %></li>
+              <li><%= link_to "Show Users", users_path, class:"btn navbar-btn", id:"show_users" %></li>
             </ul>
         </div>
       </div>
