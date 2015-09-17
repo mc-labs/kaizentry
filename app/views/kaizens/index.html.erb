@@ -12,6 +12,8 @@
   <tbody>
     <% @kaizens.each do |kaizen| %>
       <tr>
+        <td><%= kaizen.user.email %></td>
+        <td><%= kaizen.text %></td>
         <td><%= link_to 'Show', kaizen %></td>
         <td><%= link_to 'Edit', edit_kaizen_path(kaizen) %></td>
         <td><%= link_to 'Destroy', kaizen, method: :delete, data: { confirm: 'Are you sure?' } %></td>
