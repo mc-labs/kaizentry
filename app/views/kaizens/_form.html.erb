@@ -13,7 +13,7 @@
   <div class="form-group">
     <div class="row">
       <div class="col-md-4">
-        <%= f.fields_for :user do |users_form| %>
+        <%= f.fields_for :user, @kaizen.user do |users_form| %>
           <%= users_form.label :email, class: "sr-only" %>
           <div class="input-group">
             <%= users_form.text_field :email, class: "form-control", placeholder: "Email" %>

@@ -1,5 +1,5 @@
 class KaizensController < ApplicationController
-  before_action :get_kaizen, only: [:show, :destroy]
+  before_action :get_kaizen, only: [:show, :destroy, :edit]
   def index
     @kaizens = Kaizen.all
   end
