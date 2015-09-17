@@ -27,6 +27,9 @@ class KaizensController < ApplicationController
   def edit
   end
 
+  def destroy
+  end
+
   private
     def kaizen_params
       params.require(:kaizen).permit(:text)

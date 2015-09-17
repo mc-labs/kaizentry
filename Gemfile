@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'bootstrap-sass', '~> 3.3.5'
-
+gem 'coffee-script-source', '1.8.0'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 
