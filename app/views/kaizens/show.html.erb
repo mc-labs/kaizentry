@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
-<p> <%= @kaizen.user.email %> </p>
-<p> <%= @kaizen.text %> </p>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h1 class="panel-title">
+      <%=@kaizen.user.email%>'s Kaizen
+    </h1>
+  </div>
+  <div class="panel-body">
+    <%= @kaizen.text %>
+  </div>
+</div>
 <%= link_to 'Edit', edit_kaizen_path(@kaizen) %> |
 <%= link_to 'Back', kaizens_path %>
