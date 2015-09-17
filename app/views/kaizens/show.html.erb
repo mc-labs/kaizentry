@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<p> <%= @kaizen.user.email %> </p>
+<p> <%= @kaizen.text %> </p>
 <%= link_to 'Edit', edit_kaizen_path(@kaizen) %> |
 <%= link_to 'Back', kaizens_path %>

@@ -12,6 +12,10 @@
   <% end %>
   <div class="row">
     <%= f.text_area :text %>
+    <%= f.fields_for :user do |users_form| %>
+      <%= users_form.text_field :email %>
+    <% end %>
+
   </div>
 
   <div class="actions">
