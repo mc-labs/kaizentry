@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @kaizen_count = @user.kaizens.size
   end
 
   private

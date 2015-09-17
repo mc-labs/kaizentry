@@ -1,4 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @user.email %>'s kaizens</h1>
+
+<h4><%= @user.email %> has <%= pluralize(@kaizen_count, 'kaizen') %></h4>
+
+<div class="table-responsive">
+  <table class="table table-hover table-striped table-condensed">
+    <thead>
+      <th>Kaizen</th>
+      <th>Date</th>
+    </thead>
+
+    <tbody>
+      <% @user.kaizens.each do |kaizen| %>
+        <tr>
+          <td><%= kaizen.text %></td>
+          <td><%= kaizen.created_at.localtime.strftime('%d %b %Y') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
