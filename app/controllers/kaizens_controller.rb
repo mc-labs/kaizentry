@@ -12,11 +12,10 @@ class KaizensController < ApplicationController
   end
 
   def create
-    @kaizen = Kaizen.new params.require(:kaizen).permit(:text)
-    user = User.find_by email: params.require(:kaizen).permit(user: [:email])[:user][:email]
+    @kaizen = Kaizen.new kaizen_params
+    user = User.find_by email: kaizen_user_params[:user][:email]
     if user.nil?
-      @kaizen.user = User.new params.require(:kaizen).permit(user: [:email])[:user]
-      # @kaizen.user.email = params.require(:kaizen).permit(user: [:email])[:user][:email]
+      @kaizen.user = User.new kaizen_user_params[:user]
       @kaizen.user.save
     else
       @kaizen.user = user
@@ -27,4 +26,14 @@ class KaizensController < ApplicationController
 
   def edit
   end
+
+  private
+    def kaizen_params
+      params.require(:kaizen).permit(:text)
+    end
+
+    def kaizen_user_params
+      params.require(:kaizen).permit(user: [:email])
+    end
+
 end
