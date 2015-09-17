@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Kaizens</h1>
+<h1>Kaizens</h1>
 <div class = "table-responsive">
   <table class = "table table-hover mytable table-striped table-condensed">
     <thead>
@@ -15,7 +15,7 @@
       <% @kaizens.each do |kaizen| %>
         <tr>
           <td><%= kaizen.user.email %>@mastercontrol.com</td>
-          <td><%= kaizen.text %></td>
+          <td><%= link_to kaizen.text, kaizen %></td>
           <td><%= link_to 'Edit', edit_kaizen_path(kaizen), class: "btn btn-success btn-sm" %>  </td>
           <td><%= link_to 'Delete', kaizen, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
         </tr
