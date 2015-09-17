@@ -1,7 +1,7 @@
 class KaizensController < ApplicationController
   before_action :get_kaizen, only: [:show, :destroy, :edit, :update]
   def index
-    @kaizens = Kaizen.all
+    @kaizens = Kaizen.order(created_at: :desc)
   end
 
   def new
