@@ -1,5 +1,5 @@
 class KaizensController < ApplicationController
-  before_action :get_kaizen, only: [:show, :destroy, :edit]
+  before_action :get_kaizen, only: [:show, :destroy, :edit, :update]
   def index
     @kaizens = Kaizen.all
   end
@@ -28,6 +28,19 @@ class KaizensController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    user = @kaizen.user
+    if user.nil?
+      @kaizen.user = User.new kaizen_user_params[:user]
+      @kaizen.user.save
+    end
+    if @kaizen.update kaizen_params
+      redirect_to @kaizen
+    else
+      render :edit
+    end
   end
 
   def destroy
