@@ -2,23 +2,24 @@
 
 <h1>MasterControl Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
+<div class="table-responsive">
+  <table class="table table-hover table-striped table-condensed">
+    <thead>
       <tr>
-        <td><%= user.email %>@mastercontrol.com</td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <th>Email</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to "#{user.email}@mastercontrol.com", user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
