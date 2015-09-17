@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :kaizens do
-    resources :users
     resources :tags
   end
+  resources :users, except: [:destroy, :new, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
