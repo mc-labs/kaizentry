@@ -10,6 +10,11 @@ class KaizensController < ApplicationController
   def show
   end
 
+  def create
+    @kaizen = Kaizen.new
+    @kaizen.text = params[:text]
+  end
+
   def edit
   end
 end
