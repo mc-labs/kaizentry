@@ -1,4 +1,5 @@
 class KaizensController < ApplicationController
+  before_action :get_kaizen, only: [:show, :destroy]
   def index
     @kaizens = Kaizen.all
   end
@@ -8,7 +9,6 @@ class KaizensController < ApplicationController
   end
 
   def show
-    @kaizen = Kaizen.find params[:id]
   end
 
   def create
@@ -28,6 +28,8 @@ class KaizensController < ApplicationController
   end
 
   def destroy
+    @kaizen.destroy
+    redirect_to kaizens_path
   end
 
   private
@@ -37,6 +39,10 @@ class KaizensController < ApplicationController
 
     def kaizen_user_params
       params.require(:kaizen).permit(user: [:email])
+    end
+
+    def get_kaizen
+      @kaizen = Kaizen.find(params[:id])
     end
 
 end
