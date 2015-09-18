@@ -1,4 +1,27 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Kaizens for <%= @tag.name %></h1>
+
+<h4><%= @tag.name %> has <%= pluralize(@kaizen_count, 'kaizen') %></h4>
+
+<div class="table-responsive">
+  <table class="table table-hover table-striped table-condensed">
+    <thead>
+      <th>User</th>
+      <th>Kaizen</th>
+      <th>Date</th>
+    </thead>
+
+    <tbody>
+      <% @tag.kaizens.each do |kaizen| %>
+        <tr>
+          <td><%= link_to "#{kaizen.user.email}@mastercontrol.com", kaizen.user %></td>
+          <td><%= kaizen.text %></td>
+          <td><%= kaizen.created_at.localtime.strftime('%d %b %Y') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <%= link_to 'Edit', edit_tag_path(@tag) %> |
 <%= link_to 'Back', tags_path %>
