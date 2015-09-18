@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update]
   def index
-    @tags = Tag.all
+    @tags = Tag.order("lower(name) ASC")
   end
 
   def show
