@@ -60,25 +60,8 @@ class KaizensController < ApplicationController
       params.require(:kaizen).permit(user: [:email])
     end
 
-    def kaizen_tags_params
-      params.require(:kaizen).permit(tags: [:name])
-    end
-
     def get_kaizen
       @kaizen = Kaizen.find(params[:id])
     end
-
-    # def create_tags
-    #   kaizen_tags_params[:tags][:name].strip.split(/ *, */).each do |tag_name|
-    #     tag = Tag.find_by name: tag_name
-    #     if tag.nil?
-    #       tag_to_add = Tag.new name: tag_name
-    #       tag_to_add.save
-    #     else
-    #       tag_to_add = tag
-    #     end
-    #     @kaizen.tags << tag_to_add
-    #   end
-    # end
 
 end
