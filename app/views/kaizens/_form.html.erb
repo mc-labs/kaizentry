@@ -13,15 +13,13 @@
   <div class="form-group">
     <div class="row">
       <div class="col-md-4">
-        <%= f.fields_for :user, @kaizen.user do |users_form| %>
-          <%= users_form.label :email, class: "sr-only" %>
+          <%= f.label :user_email, class: "sr-only" %>
           <div class="input-group">
-            <%= users_form.text_field :email, class: "form-control", placeholder: "Email" %>
+            <%= f.text_field :user_email, class: "form-control", placeholder: "Email" %>
             <div class="input-group-addon">
               @mastercontrol.com
             </div>
           </div>
-        <% end %>
       </div>
     </div>
   </div>

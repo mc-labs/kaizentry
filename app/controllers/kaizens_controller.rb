@@ -14,15 +14,6 @@ class KaizensController < ApplicationController
 
   def create
     @kaizen = Kaizen.new kaizen_params
-    user = User.find_by email: kaizen_user_params[:user][:email]
-    if kaizen_user_params[:user][:email].empty?
-      @kaizen.user = User.find_by email: "anonymous"
-    elsif user.nil?
-      @kaizen.user = User.new kaizen_user_params[:user]
-      @kaizen.user.save
-    else
-      @kaizen.user = user
-    end
     if @kaizen.save
       redirect_to @kaizen
     else
@@ -34,12 +25,7 @@ class KaizensController < ApplicationController
   end
 
   def update
-    user = @kaizen.user
-    if user.nil?
-      @kaizen.user = User.new kaizen_user_params[:user]
-      @kaizen.user.save
-    end
-    if @kaizen.update kaizen_params
+    if @kaizen.update kaizen_update_params
       redirect_to @kaizen
     else
       render :edit
@@ -53,11 +39,13 @@ class KaizensController < ApplicationController
 
   private
     def kaizen_params
-      params.require(:kaizen).permit(:text, :tag_list)
+      params.require(:kaizen).permit(:text, :tag_list, :user_email)
     end
 
-    def kaizen_user_params
-      params.require(:kaizen).permit(user: [:email])
+    def kaizen_update_params
+      update_email_params = params.require(:kaizen).permit(:text, :tag_list).to_h
+      update_email_params[:update_user_email] = params.require(:kaizen).permit(:user_email)[:user_email]
+      update_email_params
     end
 
     def get_kaizen
