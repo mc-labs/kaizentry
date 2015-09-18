@@ -3,7 +3,7 @@
 <h1>MasterControl Users</h1>
 
 <div class="table-responsive">
-  <table class="table table-hover table-striped table-condensed">
+  <table class="table table-hover table-striped table-condensed table-bordered">
     <thead>
       <tr>
         <th>Email</th>
@@ -17,7 +17,7 @@
         <tr>
           <td><%= link_to "#{user.email}@mastercontrol.com", user %></td>
           <td><%= user.kaizens.size %></td>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-success btn-sm" %></td>
         </tr>
       <% end %>
     </tbody>
