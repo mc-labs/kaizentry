@@ -4,6 +4,8 @@ class TagsController < ApplicationController
   end
 
   def show
+    @tag = Tag.find params[:id]
+    @kaizen_count = @tag.kaizens.size
   end
 
   def edit
