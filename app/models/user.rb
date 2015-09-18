@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :kaizens, -> { order "created_at DESC"}
-  validates :email, uniqueness: true, presence: true
+  validates :email, uniqueness: true, presence: true, length: {maximum: 64}
 
   def change_email
     self.email
