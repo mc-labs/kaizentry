@@ -14,7 +14,7 @@
     <tbody>
       <% @user.kaizens.each do |kaizen| %>
         <tr>
-          <td><%= kaizen.text %></td>
+          <td><%= link_to kaizen.text, kaizen %></td>
           <td><%= kaizen.created_at.localtime.strftime('%d %b %Y') %></td>
         </tr>
       <% end %>
