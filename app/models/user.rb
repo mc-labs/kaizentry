@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :kaizens, -> { order "created_at DESC"}
-  validates :email, uniqueness: true, presence: true
+  validates :email, uniqueness: true, presence: true, length: {maximum: 64}
+  before_save { |kaizen| kaizen.email = kaizen.email.downcase }
 
   def change_email
     self.email

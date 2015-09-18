@@ -1,6 +1,7 @@
 class Kaizen < ActiveRecord::Base
   has_and_belongs_to_many :tags
   belongs_to :user
+  accepts_nested_attributes_for :user, reject_if: proc { |attributes| attributes['email'].size > 64 }
   validates :text, presence: true
 
   searchable do
