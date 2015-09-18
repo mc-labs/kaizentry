@@ -6,6 +6,7 @@ class KaizensController < ApplicationController
 
   def new
     @kaizen = Kaizen.new
+    @kaizen_tags = @kaizen.tags
   end
 
   def show
@@ -52,7 +53,7 @@ class KaizensController < ApplicationController
 
   private
     def kaizen_params
-      params.require(:kaizen).permit(:text)
+      params.require(:kaizen).permit(:text, :tag_list)
     end
 
     def kaizen_user_params

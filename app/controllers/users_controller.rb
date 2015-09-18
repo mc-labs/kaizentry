@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:update, :show]
+  before_action :set_user, only: [:update, :show, :edit]
 
   def index
     @users = User.all
@@ -15,6 +15,9 @@ class UsersController < ApplicationController
 
   def show
     @kaizen_count = @user.kaizens.size
+  end
+
+  def edit
   end
 
   private
