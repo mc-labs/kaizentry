@@ -15,7 +15,7 @@
       <div class="col-md-4">
           <%= f.label :user_email, class: "sr-only" %>
           <div class="input-group">
-            <%= f.text_field :user_email, class: "form-control", placeholder: "Email" %>
+            <%= f.text_field :user_email, class: "form-control", placeholder: "Email", readonly: f.object.persisted? %>
             <div class="input-group-addon">
               @mastercontrol.com
             </div>
