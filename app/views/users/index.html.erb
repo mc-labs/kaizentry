@@ -17,7 +17,11 @@
         <tr>
           <td><%= link_to "#{user.email}@mastercontrol.com", user %></td>
           <td><%= user.kaizens.size %></td>
-          <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-success btn-sm" %></td>
+          <% if user.email == "anonymous" %>
+            <td></td>
+          <% else %>
+            <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-success btn-sm" %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
