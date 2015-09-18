@@ -3,6 +3,10 @@ class Kaizen < ActiveRecord::Base
   belongs_to :user
   validates :text, presence: true
 
+  searchable do
+    text :text
+  end
+
   def tag_list
     self.tags.map {|t| t.name}.join(',')
   end

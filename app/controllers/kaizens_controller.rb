@@ -1,7 +1,10 @@
 class KaizensController < ApplicationController
   before_action :get_kaizen, only: [:show, :destroy, :edit, :update]
   def index
-    @kaizens = Kaizen.order(created_at: :desc)
+    @search = Kaizen.search do
+      fulltext params[:search]
+    end
+    @kaizens = @search.results
   end
 
   def new

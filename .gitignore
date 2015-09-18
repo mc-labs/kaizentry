@@ -15,4 +15,7 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore all the solr files
+/solr/*
 Gemfile.lock

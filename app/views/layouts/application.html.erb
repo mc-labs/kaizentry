@@ -8,22 +8,30 @@
 </head>
 <body>
   <div class="navbar navbar-default navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-            <ul class="nav nav-pills">
-              <li><div>
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Kaizen-2.svg/2000px-Kaizen-2.svg.png" alt="Kaizen" ;
-                  style="width:50px;height:40px;margin-top:10px;">
-              </div></li>
-              <li style="color:#5A6771; font-size:40px;">Kaiz<span style="color:#A23425;">Entry</span></li>
-              <li><%= link_to "Add Kaizen", new_kaizen_path, class:"btn navbar-btn", id:"add_kaizen" %></li>
-              <li><%= link_to "Show Kaizens", kaizens_path, class:"btn navbar-btn", id:"show_kaizen" %></li>
-              <li><%= link_to "Show Users", users_path, class:"btn navbar-btn", id:"show_users" %></li>
-              <li><%= link_to "Show Tags", tags_path, class:"btn navbar-btn", id:"show_tags" %></li>
-            </ul>
-        </div>
-      </div>
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li>
+          <ul class="nav nav-pills">
+            <li><div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Kaizen-2.svg/2000px-Kaizen-2.svg.png" alt="Kaizen" ;
+              style="width:50px;height:40px;margin-top:10px;">
+            </div></li>
+            <li style="color:#5A6771; font-size:40px;">Kaiz<span style="color:#A23425;">Entry</span></li>
+            <li><%= link_to "Add Kaizen", new_kaizen_path, class:"btn navbar-btn", id:"add_kaizen" %></li>
+            <li><%= link_to "Show Kaizens", kaizens_path, class:"btn navbar-btn", id:"show_kaizen" %></li>
+            <li><%= link_to "Show Users", users_path, class:"btn navbar-btn", id:"show_users" %></li>
+            <li><%= link_to "Show Tags", tags_path, class:"btn navbar-btn", id:"show_tags" %></li>
+          </ul>
+        </li>
+        <%= form_tag kaizens_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
+          <div class="form-group">
+            <%= text_field_tag :search, params[:search], class: "form-control navbar-btn", placeholder: "Search" %>
+          </div>
+          <%= submit_tag "Search", class: "btn btn-default navbar-btn", name: nil %>
+        <% end %>
+      </ul>
     </div>
+  </div>
 
 <div class="container">
 <%= yield %>
