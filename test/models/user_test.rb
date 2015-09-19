@@ -12,4 +12,12 @@ class UserTest < ActiveSupport::TestCase
     user.email = "dmatheson"
     assert user.valid?
   end
+
+  test "dhackett is not anonymous" do
+    refute users(:dhackett).anonymous?
+  end
+
+  test "anonymous is the anonymous user" do
+    assert users(:anonymous).anonymous?
+  end
 end

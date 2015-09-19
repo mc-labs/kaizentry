@@ -9,8 +9,12 @@ class User < ActiveRecord::Base
   end
 
   def change_email=(new_value)
-    unless self.email == "anonymous"
+    unless self.anonymous?
       self.email = new_value
     end
+  end
+
+  def anonymous?
+    self.email == "anonymous"
   end
 end
