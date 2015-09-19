@@ -18,4 +18,5 @@
 
 # Ignore all the solr files
 /solr/*
+/config/sunspot.yml
 Gemfile.lock
