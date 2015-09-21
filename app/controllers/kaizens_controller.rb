@@ -3,6 +3,8 @@ class KaizensController < ApplicationController
   def index
     @search = Kaizen.search do
       fulltext params[:search]
+
+      order_by :created_at, :desc
     end
     @kaizens = @search.results
   end

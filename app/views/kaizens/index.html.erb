@@ -7,6 +7,7 @@
       <tr>
         <th>User</th>
         <th>Kaizen</th>
+        <th>Date</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -16,6 +17,7 @@
         <tr>
           <td><%= kaizen.user.email %>@mastercontrol.com</td>
           <td><%= link_to kaizen.text, kaizen %></td>
+          <td><%= kaizen.created_at.localtime.strftime("%d %b %Y") %></td>
           <td><%= link_to 'Edit', edit_kaizen_path(kaizen), class: "btn btn-success btn-sm" %>  </td>
           <td><%= link_to 'Delete', kaizen, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
         </tr

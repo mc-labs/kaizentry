@@ -6,6 +6,8 @@ class Kaizen < ActiveRecord::Base
 
   searchable do
     text :text
+
+    time :created_at
   end
 
   def tag_list
