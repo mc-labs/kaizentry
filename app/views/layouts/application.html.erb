@@ -23,13 +23,13 @@
             <li><%= link_to "Show Tags", tags_path, class:"btn navbar-btn", id:"show_tags" %></li>
           </ul>
         </li>
-        <%= form_tag kaizens_path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
-          <div class="form-group">
-            <%= text_field_tag :search, params[:search], class: "form-control navbar-btn", placeholder: "Search" %>
-          </div>
-          <%= submit_tag "Search", class: "btn btn-default navbar-btn", name: nil %>
-        <% end %>
       </ul>
+      <%= form_tag kaizens_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+        <div class="form-group">
+          <%= text_field_tag :search, params[:search], class: "form-control navbar-btn", placeholder: "Search" %>
+        </div>
+        <%= submit_tag "Search", class: "btn btn-default navbar-btn", name: nil %>
+      <% end %>
     </div>
   </div>
 
