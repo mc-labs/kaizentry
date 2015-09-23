@@ -1,6 +1,7 @@
-# kaizentry
-Kaizen colleciton system
+# KaizEntry
+A kaizen collection system for MasterControl
 
+You must have Solr running on your machine to enable full text search and proper app functionality.
 Run the following commands to enable full text search
 
 1. `rails g sunspot_rails:install` to generate the solr yaml configuration file
